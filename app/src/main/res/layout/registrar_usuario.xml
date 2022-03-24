@@ -4,21 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:background="#E5F684">
-=======
-    android:background="#CCE156">
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Universidad"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
->>>>>>> 7b20389fe2701c7745e7d03eda6b62d0f7ccd34e
 
     <TextView
         android:id="@+id/textView3"
@@ -111,7 +97,6 @@
 
     <Spinner
         android:id="@+id/Universidad"
-<<<<<<< HEAD
         android:layout_width="378dp"
         android:layout_height="36dp"
         tools:layout_editor_absoluteX="13dp"
@@ -198,15 +183,5 @@
         app:icon="@drawable/ic_baseline_reply_all_24"
         tools:layout_editor_absoluteX="38dp"
         tools:layout_editor_absoluteY="677dp" />
-=======
-        android:layout_width="327dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
->>>>>>> 7b20389fe2701c7745e7d03eda6b62d0f7ccd34e
 
 </androidx.constraintlayout.widget.ConstraintLayout>

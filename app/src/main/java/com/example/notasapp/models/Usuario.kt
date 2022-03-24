@@ -1,9 +1,10 @@
 package com.example.notasapp.models
 
-import java.io.Serializable
+import com.google.gson.annotations.SerializedName
 
-class Usuario (
-    val username:String,
-    val password:String
-        ): Serializable{
+data class Usuario (
+    @SerializedName("username") val username:String?,
+    @SerializedName("password") val password:String?,
+    @SerializedName("token") val token:String?
+        ){
 }

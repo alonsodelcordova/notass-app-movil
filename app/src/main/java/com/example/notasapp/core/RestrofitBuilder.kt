@@ -1,10 +1,10 @@
 package com.example.notasapp.core
 
+import com.example.notasapp.models.Escuela
+import com.example.notasapp.models.Facultad
 import com.example.notasapp.models.Universidad
 import com.example.notasapp.services.SecurityService
 import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -20,6 +20,15 @@ class RestrofitBuilder {
     fun createGetUnis(): Call<List<Universidad>> {
         val  servis= create().create(SecurityService::class.java)
         return servis.getUniversidades()
+    }
+
+    fun getFacultades(id:String): Call<List<Facultad>>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.getFacultades(id)
+    }
+    fun getEscuelas(id:String): Call<List<Escuela>>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.getEscuelas(id)
     }
 
 }

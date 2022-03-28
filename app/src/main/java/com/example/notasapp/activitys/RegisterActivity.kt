@@ -11,6 +11,7 @@ import com.example.notasapp.core.RestrofitBuilder
 import com.example.notasapp.models.Escuela
 import com.example.notasapp.models.Facultad
 import com.example.notasapp.models.Universidad
+import kotlinx.android.synthetic.main.activity_register.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -45,6 +46,9 @@ class RegisterActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 getEscuelas(position)
             }
+        }
+        btnRegistrarLoginBack.setOnClickListener {
+            finish()
         }
     }
     fun getUniversidades(){

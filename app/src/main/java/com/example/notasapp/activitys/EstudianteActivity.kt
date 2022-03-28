@@ -11,7 +11,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.example.notasapp.activitys.databinding.ActivityEstudianteBinding
+import com.example.notasapp.R
+import com.example.notasapp.databinding.ActivityEstudianteBinding
 
 class EstudianteActivity : AppCompatActivity() {
 
@@ -26,10 +27,7 @@ class EstudianteActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarEstudiante.toolbar)
 
-        binding.appBarEstudiante.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_estudiante)

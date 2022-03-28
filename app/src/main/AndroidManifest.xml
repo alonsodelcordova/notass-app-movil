@@ -15,6 +15,9 @@
             android:name=".activitys.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".activitys.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".activitys.UniversidadesActivity"
             android:exported="false" />
         <activity

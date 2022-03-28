@@ -3,17 +3,14 @@ package com.example.notasapp.services
 //https://ichi.pro/es/solicitud-post-mas-simple-en-android-kotlin-usando-retrofit-247020136821018
 
 
-import com.example.notasapp.models.Escuela
-import com.example.notasapp.models.Facultad
-import com.example.notasapp.models.Universidad
-import com.example.notasapp.models.Usuario
+import com.example.notasapp.models.*
 import retrofit2.Call
 import retrofit2.http.*
 
 interface SecurityService {
     @Headers("Content-Type: application/json")
     @POST("login")
-    fun login(@Body user:Usuario): Call<Usuario>
+    fun login(@Body user:Usuario): Call<ResLogin>
 
     @GET("public/universidad")
     fun getUniversidades(): Call<List<Universidad>>

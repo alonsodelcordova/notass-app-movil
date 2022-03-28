@@ -1,8 +1,6 @@
 package com.example.notasapp.core
 
-import com.example.notasapp.models.Escuela
-import com.example.notasapp.models.Facultad
-import com.example.notasapp.models.Universidad
+import com.example.notasapp.models.*
 import com.example.notasapp.services.SecurityService
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -29,6 +27,11 @@ class RestrofitBuilder {
     fun getEscuelas(id:String): Call<List<Escuela>>{
         val  servis= create().create(SecurityService::class.java)
         return servis.getEscuelas(id)
+    }
+
+    fun login(user:Usuario): Call<ResLogin>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.login(user)
     }
 
 }

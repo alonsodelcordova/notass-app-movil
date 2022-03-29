@@ -18,8 +18,8 @@ class UbicacionFragment : Fragment() {
     private val callback = OnMapReadyCallback { googleMap ->
 
             //-5.179578121951747, -80.61878958753458
-        val sydney = LatLng(-5.179578121951747, -80.61878958753458)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Universidad Nacional de Piura"))
+        val sydney = LatLng(-5.179578121951747, -80.61875740102619)
+        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 

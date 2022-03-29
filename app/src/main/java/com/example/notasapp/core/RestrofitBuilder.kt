@@ -53,7 +53,19 @@ class RestrofitBuilder {
         return servis.getNotasEstudiante(id)
     }
 
+    fun  registerNotaCurso(nota:RegisterNota):Call<Nota>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.registerNotaCurso(nota)
+    }
+    fun  updateNotaCurso(id:Number,nota:RegisterNota):Call<Nota>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.updateNotaCurso(id.toString(),nota)
+    }
 
+    fun  deleteNotaCurso(id:Number):Call<RespuestaMensaje>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.deleteNotaCurso(id.toString())
+    }
 }
 
 

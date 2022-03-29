@@ -32,5 +32,9 @@ data class RegisterEstudiante(
     @SerializedName("dni") val dni:String,
     @SerializedName("email") val email:String,
     @SerializedName("escuela_id") val escuela_id:String,
-    )
+    ){}
+
+data class RespuestaMensaje(
+    @SerializedName("msg") val msg:String,
+)
 

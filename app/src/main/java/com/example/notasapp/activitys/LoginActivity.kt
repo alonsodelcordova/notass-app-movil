@@ -54,8 +54,7 @@ class LoginActivity : AppCompatActivity(){
         }
         spinner.visibility = View.VISIBLE
         val res = core.login(user)
-        res.enqueue(
-            object : Callback<ResLogin> {
+        res.enqueue( object : Callback<ResLogin> {
                 override fun onResponse(call: Call<ResLogin>, response: Response<ResLogin>) {
                     if (response.code() == 200) {
                         spinner.visibility=View.GONE

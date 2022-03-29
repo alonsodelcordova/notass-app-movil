@@ -25,25 +25,25 @@ class MainActivity : AppCompatActivity() {
         btnMainInicio.setOnClickListener {
             val intent = Intent(this@MainActivity, LoginActivity::class.java)
             startActivity(intent)
-            /*val editor = shared.edit()
-            editor.putString("mail","alonso@email.com")
-            editor.commit()
-            Toast.makeText(this,"Guardado", Toast.LENGTH_SHORT).show()*/
+
         }
         btnMainLeer.setOnClickListener {
             Toast.makeText(this,shared.getString("user_name",""), Toast.LENGTH_SHORT).show()
         }
-        /*val builder = AlertDialog.Builder(this)
-        builder.setTitle("Mensaje de Alerta")
-        builder.setMessage("pregunta")
-        builder.setPositiveButton("SI") { dialog, which ->
-            Toast.makeText(applicationContext,
-                "si", Toast.LENGTH_SHORT).show()
-        }
-        builder.setNegativeButton("NO") { dialog, which ->
-            Toast.makeText(applicationContext,
-                "No", Toast.LENGTH_SHORT).show()
-        }
-        builder.show()*/
+
     }
 }
+
+
+/*val builder = AlertDialog.Builder(this)
+       builder.setTitle("Mensaje de Alerta")
+       builder.setMessage("pregunta")
+       builder.setPositiveButton("SI") { dialog, which ->
+           Toast.makeText(applicationContext,
+               "si", Toast.LENGTH_SHORT).show()
+       }
+       builder.setNegativeButton("NO") { dialog, which ->
+           Toast.makeText(applicationContext,
+               "No", Toast.LENGTH_SHORT).show()
+       }
+       builder.show()*/

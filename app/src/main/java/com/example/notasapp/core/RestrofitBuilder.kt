@@ -17,6 +17,7 @@ class RestrofitBuilder {
             .build()
         return retrofit
     }
+    //peticiones
     fun createGetUnis(): Call<List<Universidad>> {
         val  servis= create().create(SecurityService::class.java)
         return servis.getUniversidades()

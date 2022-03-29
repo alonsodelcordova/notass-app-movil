@@ -71,6 +71,8 @@ class LoginActivity : AppCompatActivity(){
                         val intent = Intent(this@LoginActivity, EstudianteActivity::class.java)
                         startActivity(intent)
                         Toast.makeText(this@LoginActivity,"Success",Toast.LENGTH_LONG).show()
+                    }else{
+                        spinner.visibility=View.GONE
                     }
                 }
                 override fun onFailure(call: Call<ResLogin>, t: Throwable) {

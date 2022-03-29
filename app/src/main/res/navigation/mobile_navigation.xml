@@ -15,16 +15,21 @@
         android:id="@+id/nav_notas"
         android:name="com.example.notasapp.activitys.ui.NotasFragment"
         android:label="Mis Notas"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_notas" />
 
     <fragment
         android:id="@+id/nav_informe"
         android:name="com.example.notasapp.activitys.ui.InformeFragment"
         android:label="Informe Academico"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_informe" />
     <fragment
         android:id="@+id/nav_historial"
         android:name="com.example.notasapp.activitys.ui.historial"
         android:label="Historial Academico"
         tools:layout="@layout/fragment_historial" />
+    <fragment
+        android:id="@+id/nav_ubicanos"
+        android:name="com.example.notasapp.activitys.ui.UbicacionFragment"
+        android:label="Ubícanos"
+        tools:layout="@layout/fragment_ubicacion" />
 </navigation>

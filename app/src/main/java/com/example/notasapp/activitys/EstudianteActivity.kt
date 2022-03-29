@@ -57,7 +57,8 @@ class EstudianteActivity : AppCompatActivity() {
                 R.id.nav_inicio,
                 R.id.nav_notas,
                 R.id.nav_informe,
-                R.id.nav_historial
+                R.id.nav_historial,
+                R.id.nav_ubicanos
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

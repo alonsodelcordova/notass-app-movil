@@ -84,7 +84,7 @@ class RegisterActivity : AppCompatActivity() {
 
     fun getFacultades(i:Int){
         val uni = listaUniversidad[i]
-        val res = RestrofitBuilder().getFacultades(uni.id.toString())
+        val res = core.getFacultades(uni.id.toString())
         res.enqueue(
             object : Callback<List<Facultad>> {
                 override fun onResponse(call: Call<List<Facultad>>, response: Response<List<Facultad>>) {
@@ -112,7 +112,7 @@ class RegisterActivity : AppCompatActivity() {
     }
     fun getEscuelas(i:Int){
         val fac = listaFacultades[i]
-        val res = RestrofitBuilder().getEscuelas(fac.id.toString())
+        val res = core.getEscuelas(fac.id.toString())
         res.enqueue(
             object : Callback<List<Escuela>> {
                 override fun onResponse(call: Call<List<Escuela>>, response: Response<List<Escuela>>) {

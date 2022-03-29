@@ -1,14 +1,26 @@
 package com.example.notasapp.models
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-class Curso(
-    val id:Number,
-    val nombre:String,
-    val tipo:String,
-    val ciclo:Number,
-    val creditos:Number,
-    val escuela_id: Number,
-    val descripcion:String
-): Serializable {
+data class Curso(
+    @SerializedName("id") val id:Number,
+    @SerializedName("nombre") val nombre:String,
+    @SerializedName("tipo") val tipo:String,
+    @SerializedName("ciclo") val ciclo:Number,
+    @SerializedName("creditos") val creditos:Number,
+    @SerializedName("escuela_id") val escuela_id: Number,
+    var nota:Int?,
+) {
+
 }
+
+data class Nota(
+    @SerializedName("id") val id :Number,
+    @SerializedName("curso_id") val curso_id:Number,
+    @SerializedName("estudiante_id") val estudiante_id:Number,
+    @SerializedName("nota") val nota:Int
+) {
+
+}
+

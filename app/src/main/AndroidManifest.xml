@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NotasApp"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".item_nota"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

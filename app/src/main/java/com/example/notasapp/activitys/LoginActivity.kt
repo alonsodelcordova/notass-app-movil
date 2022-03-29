@@ -66,6 +66,7 @@ class LoginActivity : AppCompatActivity(){
                         editor.putString("user_tipo",body.user.tipo)
                         editor.putString("user_id",body.user.id)
                         editor.putString("estudiante_id",body.estudiante?.id.toString())
+                        editor.putString("escuela_id",body.estudiante?.escuela_id.toString())
                         editor.commit()
 
                         val intent = Intent(this@LoginActivity, EstudianteActivity::class.java)

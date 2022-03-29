@@ -28,4 +28,12 @@ interface SecurityService {
     @POST("public/register")
     fun registerEstudiante(@Body estudiante:RegisterEstudiante ): Call<Estudiante>
 
+    // estudiante
+    @Headers("Content-Type: application/json")
+    @GET("estudiante/curso/{id}")
+    fun getCursosEscuela(@Path("id") id: String ): Call<List<Curso>>
+
+    @Headers("Content-Type: application/json")
+    @GET("estudiante/nota/estudiante/{id}")
+    fun getNotasEstudiante(@Path("id") id: String ): Call<List<Nota>>
 }

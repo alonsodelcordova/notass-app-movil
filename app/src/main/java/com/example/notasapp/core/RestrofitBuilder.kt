@@ -41,6 +41,18 @@ class RestrofitBuilder {
         return servis.registerEstudiante(estudiante)
     }
 
+    // estudiante
+
+    fun  getCursosEscuela(id:String):Call<List<Curso>>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.getCursosEscuela(id)
+    }
+
+    fun  getNotasEstudiante(id:String):Call<List<Nota>>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.getNotasEstudiante(id)
+    }
+
 
 }
 

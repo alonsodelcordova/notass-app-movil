@@ -6,23 +6,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_inicio"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_login_24"
             android:title="Inicio" />
         <item
             android:id="@+id/nav_notas"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_assignment_ind_24"
             android:title="Mis Notas" />
         <item
             android:id="@+id/nav_informe"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_menu_book_24"
             android:title="Informe Académico" />
         <item
             android:id="@+id/nav_historial"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_history_24"
             android:title="Historial Académico" />
         <item
             android:id="@+id/nav_ubicanos"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_location_on_24"
             android:title="Ubícanos" />
     </group>
 </menu>

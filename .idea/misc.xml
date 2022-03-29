@@ -3,7 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/activity_item_nota.xml" value="0.4" />
         <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/activity_register.xml" value="0.15208333333333332" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/app_bar_estudiante.xml" value="0.15208333333333332" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/content_estudiante.xml" value="0.15208333333333332" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/fragment_historial.xml" value="0.264" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/fragment_informe.xml" value="0.25" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/fragment_inicio.xml" value="0.15208333333333332" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/fragment_notas.xml" value="0.15208333333333332" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/fragment_ubicacion.xml" value="0.15208333333333332" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/login_inicio.xml" value="0.15208333333333332" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/layout/nav_header_estudiante.xml" value="0.15208333333333332" />
+        <entry key="..\:/EDISON CORDOVA/ARCHIVOS LAPTOP+CV+CONSTANCIAS/UNP-INFO/2021_II/TEC.WEB/FINAL_TRABAJO/notass-app-movil/app/src/main/res/menu/activity_main_drawer.xml" value="0.264" />
         <entry key="..\:/Users/alonso/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.1" />
         <entry key="..\:/Users/alonso/StudioProjects/NotasApp/app/src/main/res/layout/activity_estudiante.xml" value="0.264" />
         <entry key="..\:/Users/alonso/StudioProjects/NotasApp/app/src/main/res/layout/activity_item_nota.xml" value="0.4" />

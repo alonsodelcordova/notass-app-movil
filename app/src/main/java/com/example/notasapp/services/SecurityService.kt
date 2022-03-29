@@ -24,4 +24,8 @@ interface SecurityService {
     @GET("public/escuela/fac/{id}")
     fun getEscuelas(@Path("id") id: String ): Call<List<Escuela>>
 
+    @Headers("Content-Type: application/json")
+    @POST("public/register")
+    fun registerEstudiante(@Body estudiante:RegisterEstudiante ): Call<Estudiante>
+
 }

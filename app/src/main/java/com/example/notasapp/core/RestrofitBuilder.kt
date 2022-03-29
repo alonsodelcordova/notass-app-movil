@@ -1,5 +1,7 @@
 package com.example.notasapp.core
 
+import android.content.Context
+import android.content.SharedPreferences
 import com.example.notasapp.models.*
 import com.example.notasapp.services.SecurityService
 import retrofit2.Call
@@ -33,6 +35,12 @@ class RestrofitBuilder {
         val  servis= create().create(SecurityService::class.java)
         return servis.login(user)
     }
+
+    fun registrarEstudiante(estudiante: RegisterEstudiante):Call<Estudiante>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.registerEstudiante(estudiante)
+    }
+
 
 }
 

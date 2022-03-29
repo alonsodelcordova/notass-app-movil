@@ -24,3 +24,13 @@ data class ResLogin(
 
 }
 
+data class RegisterEstudiante(
+    @SerializedName("apellidos") val apellidos:String,
+    @SerializedName("nombres") val nombres:String,
+    @SerializedName("codigo") val codigo:String,
+    @SerializedName("direccion") val direccion:String,
+    @SerializedName("dni") val dni:String,
+    @SerializedName("email") val email:String,
+    @SerializedName("escuela_id") val escuela_id:String,
+    )
+

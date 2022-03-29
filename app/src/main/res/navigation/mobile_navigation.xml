@@ -3,23 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_inicio">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.notasapp.activitys.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_inicio"
+        android:name="com.example.notasapp.activitys.ui.InicioFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_inicio" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.notasapp.activitys.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:id="@+id/nav_notas"
+        android:name="com.example.notasapp.activitys.ui.NotasFragment"
+        android:label="Mis Notas"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.notasapp.activitys.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:id="@+id/nav_informe"
+        android:name="com.example.notasapp.activitys.ui.InformeFragment"
+        android:label="Informe Academico"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_historial"
+        android:name="com.example.notasapp.activitys.ui.historial"
+        android:label="Historial Academico"
+        tools:layout="@layout/fragment_historial" />
 </navigation>

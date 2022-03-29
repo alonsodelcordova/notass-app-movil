@@ -1,16 +1,17 @@
 package com.example.notasapp.activitys
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.notasapp.R
 import com.example.notasapp.core.RestrofitBuilder
-import com.example.notasapp.models.Escuela
-import com.example.notasapp.models.Facultad
-import com.example.notasapp.models.Universidad
+import com.example.notasapp.models.*
 import kotlinx.android.synthetic.main.activity_register.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -49,6 +50,9 @@ class RegisterActivity : AppCompatActivity() {
         }
         btnRegistrarLoginBack.setOnClickListener {
             finish()
+        }
+        btnRegistrar.setOnClickListener {
+            registerUsuario()
         }
     }
     fun getUniversidades(){
@@ -130,6 +134,39 @@ class RegisterActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<List<Escuela>>, t: Throwable) {
                     print(t.message)
+                }
+            }
+        )
+    }
+    fun registerUsuario(){
+        var escuela = listaEscuelas[spnRegisterEscuela.selectedItemPosition]
+        var register = RegisterEstudiante(
+            nombres = txtViewNombres.text.toString(),
+            apellidos = txtViewApellidos.text.toString(),
+            codigo = txtViewCodigo.text.toString(),
+            direccion = txtViewDireccion.text.toString(),
+            dni = txtViewDni.text.toString(),
+            email = txtViewEmail.text.toString(),
+            escuela_id = escuela.id.toString()
+        )
+        val res = core.registrarEstudiante(register)
+        res.enqueue(
+            object : Callback<Estudiante> {
+                override fun onResponse(call: Call<Estudiante>, response: Response<Estudiante>) {
+                    if (response.code() == 201) {
+                        val builder = AlertDialog.Builder(this@RegisterActivity)
+                        builder.setTitle("Estudiante Registrado!!")
+                        builder.setMessage("Usuario:"+register.email+"\nContraseña:"+register.dni)
+                        builder.setPositiveButton("Ok") { dialog, which ->
+                           this@RegisterActivity.finish()
+                        }
+                        builder.show()
+
+                    }
+                }
+                override fun onFailure(call: Call<Estudiante>, t: Throwable) {
+                    print(t.message)
+                    Toast.makeText(this@RegisterActivity,"Error", Toast.LENGTH_LONG).show()
                 }
             }
         )

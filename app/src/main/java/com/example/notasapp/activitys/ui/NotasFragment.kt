@@ -242,6 +242,7 @@ class NotasFragment : Fragment() {
     }
 
     fun showListCursos(ciclo:Number){
+        spinner.visibility=View.VISIBLE
         listaCursos= arrayListOf()
 
         listaCursosAll.forEach {
@@ -255,6 +256,6 @@ class NotasFragment : Fragment() {
         }
         val adapter = NotaAdapter(requireActivity(), listaCursos)
         binding.listNotasContent.adapter = adapter
-
+        spinner.visibility=View.GONE
     }
 }

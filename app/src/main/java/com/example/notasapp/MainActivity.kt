@@ -27,9 +27,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        btnMainLeer.setOnClickListener {
-            Toast.makeText(this,shared.getString("user_name",""), Toast.LENGTH_SHORT).show()
-        }
 
     }
 }

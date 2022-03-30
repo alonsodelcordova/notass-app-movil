@@ -27,10 +27,10 @@
 
     <TextView
         android:id="@+id/txtInformeEstudiante"
-        android:layout_width="231dp"
-        android:layout_height="26dp"
+        android:layout_width="363dp"
+        android:layout_height="34dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text=""
         android:textAlignment="center"
         android:textColor="#228C27"
         android:textSize="16sp"
@@ -42,15 +42,17 @@
 
     <TextView
         android:id="@+id/txtInformeResumen"
-        android:layout_width="367dp"
-        android:layout_height="110dp"
+        android:layout_width="370dp"
+        android:layout_height="118dp"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:text=""
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline26"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.585"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtInformeEstudiante"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.666" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline26"
@@ -118,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="Virat Kohli" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/txtInformeNumCreObliAprobados"
@@ -126,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="IND" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/txtInformeNumCreObliDebe"
@@ -134,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="895" />
+                android:text="" />
         </TableRow>
 
         <TableRow
@@ -153,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="Rohit Sharma" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/txtInformeNumCreElecAprobados"
@@ -161,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="IND" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/txtInformeNumCreElecDebe"
@@ -169,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="863" />
+                android:text="" />
 
         </TableRow>
 
@@ -189,7 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="Faf du Plessis" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/txtInformeNumCreTotalAprobados"
@@ -197,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="PAK" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/txtInformeNumCreTotalDebe"
@@ -205,7 +207,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:text="834" />
+                android:text="" />
 
         </TableRow>
 

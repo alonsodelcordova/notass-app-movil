@@ -33,7 +33,8 @@ class NotaAdapter(
                 layout.txtItemNotaNota.setTextColor(R.color.azul)
             }
         }else{
-            layout.txtItemNotaNota.visibility= View.GONE
+            //layout.txtItemNotaNota.visibility= View.GONE
+            layout.txtItemNotaNota.text="Agregar"
         }
 
         return  layout

@@ -77,6 +77,9 @@ class LoginActivity : AppCompatActivity(){
                         txtUser.text.clear()
                         txtContraseña.text.clear()
 
+                    }else{
+                        Toast.makeText(this@LoginActivity,
+                            "Ocurrió un error", Toast.LENGTH_SHORT).show()
                     }
                     spinner.visibility=View.GONE
                 }

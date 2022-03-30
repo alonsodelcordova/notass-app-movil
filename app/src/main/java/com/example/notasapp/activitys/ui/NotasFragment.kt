@@ -126,16 +126,18 @@ class NotasFragment : Fragment() {
     }
 
     fun opcionesNota(curso: Curso){
+        val builder = AlertDialog.Builder(requireActivity())
         var textNota = "Agregar Nota"
         if(curso.nota!=null){
             textNota="Editar Nota"
+            builder.setPositiveButton("Eliminar") { dialog, which ->
+                deleteNota(curso)
+            }
         }
-        val builder = AlertDialog.Builder(requireActivity())
+
         builder.setTitle("Opciones")
         builder.setMessage("¿Qué desea hacer?")
-        builder.setPositiveButton("Eliminar") { dialog, which ->
-            deleteNota(curso)
-        }
+
         builder.setNegativeButton(textNota) { dialog, which ->
             editarNota(curso)
         }
@@ -197,11 +199,16 @@ class NotasFragment : Fragment() {
                                 Toast.makeText(requireActivity(),
                                     "Guardado!!", Toast.LENGTH_SHORT).show()
                                 getNotas()
+                            }else{
+                                Toast.makeText(requireActivity(),
+                                    "Ocurrió un error", Toast.LENGTH_SHORT).show()
                             }
                             spinner.visibility=View.GONE
                         }
                         override fun onFailure(call: Call<Nota>, t: Throwable) {
                             print(t.message)
+                            Toast.makeText(requireActivity(),
+                                t.message, Toast.LENGTH_SHORT).show()
                             spinner.visibility=View.GONE
                         }
                     })

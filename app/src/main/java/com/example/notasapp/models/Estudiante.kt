@@ -13,3 +13,11 @@ data class Estudiante(
     @SerializedName("escuela")val escuela:Escuela
 )
 {}
+
+data class DatosEstudiante(
+    @SerializedName("escuela") var escuela:String,
+    @SerializedName("facultad") var facultad:String,
+    @SerializedName("universidad") var universidad:String
+){
+
+}

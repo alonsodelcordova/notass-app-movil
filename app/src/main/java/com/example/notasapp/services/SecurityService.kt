@@ -38,4 +38,7 @@ interface SecurityService {
 
     @DELETE("estudiante/nota/{id}")
     fun deleteNotaCurso(@Path("id") id: String): Call<RespuestaMensaje>
+
+    @GET("estudiante/datos/{id}")
+    fun getDatosEstudiante(@Path("id") id: String ): Call<DatosEstudiante>
 }

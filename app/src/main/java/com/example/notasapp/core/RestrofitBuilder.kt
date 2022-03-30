@@ -43,7 +43,10 @@ class RestrofitBuilder {
     }
 
     // estudiante
-
+    fun  getDatosEstudiante(id:String):Call<DatosEstudiante>{
+        val  servis= create().create(SecurityService::class.java)
+        return servis.getDatosEstudiante(id)
+    }
     fun  getCursosEscuela(id:String):Call<List<Curso>>{
         val  servis= create().create(SecurityService::class.java)
         return servis.getCursosEscuela(id)

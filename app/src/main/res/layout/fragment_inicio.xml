@@ -8,9 +8,9 @@
     tools:context=".activitys.ui.InicioFragment" >
 
     <TextView
-        android:id="@+id/textViewInicio13"
-        android:layout_width="101dp"
-        android:layout_height="20dp"
+        android:id="@+id/txtInicioNombre"
+        android:layout_width="388dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/titule"
         android:text="BIENVENIDO"
@@ -18,8 +18,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineInicio20"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.478" />
 
     <TextView
         android:id="@+id/textViewInicio14"
@@ -39,9 +41,11 @@
         app:layout_constraintGuide_percent="0.08" />
 
     <TextView
-        android:id="@+id/txtInicioNombre"
+        android:id="@+id/txtInicioUniversidad"
         android:layout_width="367dp"
         android:layout_height="23dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guidelineInicio24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -148,6 +152,7 @@
         android:layout_height="30dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guidelineInicio29"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,6 +164,7 @@
         android:layout_height="34dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guidelineInicio31"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -16,6 +16,7 @@ import com.example.notasapp.models.Nota
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.roundToInt
 
 class InformeFragment : Fragment() {
     private var _binding: FragmentInformeBinding? = null
@@ -85,7 +86,7 @@ class InformeFragment : Fragment() {
         var t_creditos_E=0
         var t_creditos_E_apr=0
         var s_notas=0
-        var promedio=0
+        var promedio=0.00
         listaCursosAll.forEach {
             if(it?.nota!=null){
                 if(it.tipo=="O"){
@@ -103,7 +104,8 @@ class InformeFragment : Fragment() {
             }
         }
         if(t_creditos_E+t_creditos_O>0){
-            promedio= (s_notas)/(t_creditos_E+t_creditos_O)
+            promedio= s_notas.toDouble()/(t_creditos_E+t_creditos_O).toDouble()
+            promedio = (promedio * 100.0).roundToInt() / 100.0
         }
         val creObliGra = shared.getString("escuela_cre_obl","")!!.toInt()
         val creElecGra = shared.getString("escuela_cre_ele","")!!.toInt()

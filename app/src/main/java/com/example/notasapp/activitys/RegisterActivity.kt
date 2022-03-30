@@ -184,7 +184,6 @@ class RegisterActivity : AppCompatActivity() {
                            this@RegisterActivity.finish()
                         }
                         builder.show()
-
                     }
                     spinner.visibility = View.GONE
                 }

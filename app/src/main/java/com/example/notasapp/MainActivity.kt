@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         shared = getSharedPreferences("data", Context.MODE_PRIVATE)
         if(shared.getString("user_name","")!=""){
             val intent = Intent(this@MainActivity, LoginActivity::class.java)
@@ -25,9 +26,7 @@ class MainActivity : AppCompatActivity() {
         btnMainInicio.setOnClickListener {
             val intent = Intent(this@MainActivity, LoginActivity::class.java)
             startActivity(intent)
-
         }
-
     }
 }
 

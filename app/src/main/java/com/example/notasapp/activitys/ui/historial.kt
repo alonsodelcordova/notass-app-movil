@@ -87,14 +87,22 @@ class historial : Fragment() {
     fun showListCursos(ciclo:Number){
         listaCursos= arrayListOf()
         var t_creditos_O=0
+        var t_creditos_O_apr=0
         var t_creditos_E=0
+        var t_creditos_E_apr=0
         var s_notas=0
         var promedio=0
         listaCursosAll.forEach {
             if(it.ciclo.toString()==ciclo.toString() && it?.nota!=null){
                 if(it.tipo=="O"){
+                    if(it.nota!!>10){
+                        t_creditos_O_apr+= it.creditos.toInt()
+                    }
                     t_creditos_O += it.creditos.toInt()
                 }else{
+                    if(it.nota!!>10){
+                        t_creditos_E_apr+= it.creditos.toInt()
+                    }
                     t_creditos_E += it.creditos.toInt()
                 }
                 s_notas += (it.nota!!.toInt()*it.creditos.toInt())
@@ -113,8 +121,8 @@ class historial : Fragment() {
         binding.listHistorialCursos.adapter = adapter
         binding.txtHistorialResumen.text = ("Nº Cursos: ${listaCursos.size} " +
                 "\nPromedio del Ciclo: ${promedio}" +
-                "\nCreditos Obigatorios: ${t_creditos_O}" +
-                "\nCreditos Electivos: ${t_creditos_E}")
+                "\nCreditos Obigatorios Aprobados: ${t_creditos_O_apr}" +
+                "\nCreditos Electivos Aprobados: ${t_creditos_E_apr}")
     }
 
     fun  getCiclos(){

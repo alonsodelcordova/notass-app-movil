@@ -17,17 +17,20 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.notasapp.R
 import com.example.notasapp.databinding.ActivityEstudianteBinding
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_estudiante.*
 
 class EstudianteActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityEstudianteBinding
     private  lateinit var shared: SharedPreferences
+    private  lateinit var spinner: View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityEstudianteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         setSupportActionBar(binding.appBarEstudiante.toolbar)
         // change email user

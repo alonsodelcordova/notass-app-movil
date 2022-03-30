@@ -6,15 +6,208 @@
     android:layout_height="match_parent"
     tools:context=".activitys.ui.InformeFragment">
 
-
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/txt213123123123"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="48dp"
-        android:text="Informe"
+        android:text="Informe Académico"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline25"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.06" />
+
+    <TextView
+        android:id="@+id/txtInformeEstudiante"
+        android:layout_width="231dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#228C27"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline25" />
+
+    <TextView
+        android:id="@+id/txtInformeResumen"
+        android:layout_width="367dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/guideline26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInformeEstudiante"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <TableLayout
+        android:layout_width="387dp"
+        android:layout_height="453dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline26">
+        <TableRow
+            android:padding="10dp"
+            android:background="#51B435">
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Creditos" />
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Requisitos de Graduación" />
+
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Aprobados" />
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Debe" />
+        </TableRow>
+
+        <TableRow
+            android:background="#F0F7F7"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Número de Creditos Obligatorios" />
+
+            <TextView
+                android:id="@+id/txtInformeNumCreObliGraduacion"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Virat Kohli" />
+
+            <TextView
+                android:id="@+id/txtInformeNumCreObliAprobados"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="IND" />
+
+            <TextView
+                android:id="@+id/txtInformeNumCreObliDebe"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="895" />
+        </TableRow>
+
+        <TableRow
+            android:background="#F0F7F7"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Número de Créditos Electivos" />
+
+            <TextView
+                android:id="@+id/txtInformeNumCreElecGraduacion"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Rohit Sharma" />
+
+            <TextView
+                android:id="@+id/txtInformeNumCreElecAprobados"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="IND" />
+
+            <TextView
+                android:id="@+id/txtInformeNumCreElecDebe"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="863" />
+
+        </TableRow>
+
+        <TableRow
+            android:background="#F0F7F7"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Número Total de Créditos" />
+
+            <TextView
+                android:id="@+id/txtInformeNumCreTotalGraduacion"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Faf du Plessis" />
+
+            <TextView
+                android:id="@+id/txtInformeNumCreTotalAprobados"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="PAK" />
+
+            <TextView
+                android:id="@+id/txtInformeNumCreTotalDebe"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="834" />
+
+        </TableRow>
+
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

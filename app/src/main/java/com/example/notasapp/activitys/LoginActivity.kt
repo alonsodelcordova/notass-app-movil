@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.notasapp.R
@@ -19,14 +18,13 @@ import retrofit2.Response
 
 class LoginActivity : AppCompatActivity(){
     private  lateinit var core: RestrofitBuilder
-    private  lateinit var spinner: ProgressBar
+    private  lateinit var spinner: View
     private  lateinit var shared:SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_inicio)
         core = RestrofitBuilder()
-        spinner = progressBar
-        spinner.visibility=View.GONE
+        spinner = loader_login as View
         shared = getSharedPreferences("data", Context.MODE_PRIVATE)
         if(shared.getString("user_name","")!=""){
             val intent = Intent(this, EstudianteActivity::class.java)
@@ -57,7 +55,6 @@ class LoginActivity : AppCompatActivity(){
         res.enqueue( object : Callback<ResLogin> {
                 override fun onResponse(call: Call<ResLogin>, response: Response<ResLogin>) {
                     if (response.code() == 200) {
-                        spinner.visibility=View.GONE
                         var body = response.body()!!
                         // save credentials
                         val editor = shared.edit()
@@ -70,14 +67,18 @@ class LoginActivity : AppCompatActivity(){
                         editor.putString("estudiante_codigo",body.estudiante?.codigo.toString())
                         editor.putString("escuela_id",body.estudiante?.escuela_id.toString())
                         editor.putString("escuela_ciclos",body.estudiante?.escuela?.ciclos.toString())
+                        editor.putString("escuela_cre_obl",body.estudiante?.escuela?.cre_obli.toString())
+                        editor.putString("escuela_cre_ele",body.estudiante?.escuela?.cre_ele.toString())
                         editor.commit()
 
                         val intent = Intent(this@LoginActivity, EstudianteActivity::class.java)
                         startActivity(intent)
                         Toast.makeText(this@LoginActivity,"Success",Toast.LENGTH_LONG).show()
-                    }else{
-                        spinner.visibility=View.GONE
+                        txtUser.text.clear()
+                        txtContraseña.text.clear()
+
                     }
+                    spinner.visibility=View.GONE
                 }
                 override fun onFailure(call: Call<ResLogin>, t: Throwable) {
                     print(t.message)

@@ -13,6 +13,7 @@ import com.example.notasapp.R
 import com.example.notasapp.core.RestrofitBuilder
 import com.example.notasapp.models.*
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.login_inicio.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,9 +26,11 @@ class RegisterActivity : AppCompatActivity() {
     private  lateinit var  sp_fac:Spinner
     private  lateinit var  sp_esc:Spinner
     private  lateinit var core:RestrofitBuilder
+    private  lateinit var spinner: View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        spinner = loader_register as View
         //iniciarlizando variables
         sp_fac=  findViewById(R.id.spnRegisterFacultad)
         sp_uni=  findViewById(R.id.spnRegisterUniversidad)
@@ -56,6 +59,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
     fun getUniversidades(){
+        spinner.visibility = View.VISIBLE
         val res = core.createGetUnis()
         res.enqueue(
             object : Callback<List<Universidad>> {
@@ -74,16 +78,29 @@ class RegisterActivity : AppCompatActivity() {
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         sp_uni.adapter = adapter
                     }
+                    spinner.visibility = View.GONE
                 }
                 override fun onFailure(call: Call<List<Universidad>>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility = View.GONE
                 }
             }
         )
     }
 
     fun getFacultades(i:Int){
+        spinner.visibility = View.VISIBLE
         val uni = listaUniversidad[i]
+        //limpiar escuelas
+        listaEscuelas=arrayListOf()
+        var adapter = ArrayAdapter(
+            this@RegisterActivity,
+            android.R.layout.simple_spinner_item,
+            listaEscuelas
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        sp_esc.adapter = adapter
+
         val res = core.getFacultades(uni.id.toString())
         res.enqueue(
             object : Callback<List<Facultad>> {
@@ -102,15 +119,18 @@ class RegisterActivity : AppCompatActivity() {
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         sp_fac.adapter = adapter
                     }
+                    spinner.visibility = View.GONE
                 }
 
                 override fun onFailure(call: Call<List<Facultad>>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility = View.GONE
                 }
             }
         )
     }
     fun getEscuelas(i:Int){
+        spinner.visibility = View.VISIBLE
         val fac = listaFacultades[i]
         val res = core.getEscuelas(fac.id.toString())
         res.enqueue(
@@ -130,15 +150,18 @@ class RegisterActivity : AppCompatActivity() {
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         sp_esc.adapter = adapter
                     }
+                    spinner.visibility = View.GONE
                 }
 
                 override fun onFailure(call: Call<List<Escuela>>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility = View.GONE
                 }
             }
         )
     }
     fun registerUsuario(){
+        spinner.visibility = View.VISIBLE
         var escuela = listaEscuelas[spnRegisterEscuela.selectedItemPosition]
         var register = RegisterEstudiante(
             nombres = txtViewNombres.text.toString(),
@@ -163,9 +186,11 @@ class RegisterActivity : AppCompatActivity() {
                         builder.show()
 
                     }
+                    spinner.visibility = View.GONE
                 }
                 override fun onFailure(call: Call<Estudiante>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility = View.GONE
                     Toast.makeText(this@RegisterActivity,"Error", Toast.LENGTH_LONG).show()
                 }
             }

@@ -319,4 +319,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
+    <include
+        android:id="@+id/loader_register"
+        layout="@layout/activity_loader"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

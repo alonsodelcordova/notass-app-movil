@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.notasapp.R
+import com.example.notasapp.activitys.EstudianteActivity
 import com.example.notasapp.core.RestrofitBuilder
 import com.example.notasapp.databinding.FragmentInicioBinding
 import com.example.notasapp.models.DatosEstudiante
@@ -41,7 +43,9 @@ class InicioFragment : Fragment() {
     }
     fun getDatos(){
         if(shared.getString("estudiante_id","")!=""){
-            val res = core.getDatosEstudiante(shared.getString("estudiante_id","")!!)
+            //var main = requireActivity() as EstudianteActivity
+            //main.showSpinner()
+                val res = core.getDatosEstudiante(shared.getString("estudiante_id","")!!)
             res.enqueue( object : Callback<DatosEstudiante> {
                 override fun onResponse(call: Call<DatosEstudiante>, response: Response<DatosEstudiante>) {
                     if (response.code() == 200) {
@@ -50,6 +54,7 @@ class InicioFragment : Fragment() {
                         binding.txtInicioFacultad.text=rpta.facultad
                         binding.txtInicioUniversidad.text=rpta.universidad
                     }
+                    //EstudianteActivity().hideSpinner()
                 }
                 override fun onFailure(call: Call<DatosEstudiante>, t: Throwable) {
                     print(t.message)

@@ -9,6 +9,7 @@ data class Estudiante(
     @SerializedName("apellidos") val apellidos:String,
     @SerializedName("direccion") val direccion :String,
     @SerializedName("dni") val dni:String,
-    @SerializedName("escuela_id")val escuela_id:Number
+    @SerializedName("escuela_id")val escuela_id:Number,
+    @SerializedName("escuela")val escuela:Escuela
 )
 {}

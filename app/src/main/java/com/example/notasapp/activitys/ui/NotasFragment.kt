@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
+import com.example.notasapp.R
 import com.example.notasapp.activitys.ui.adapters.NotaAdapter
 import com.example.notasapp.core.RestrofitBuilder
 import com.example.notasapp.databinding.FragmentNotasBinding
@@ -21,14 +21,18 @@ import com.example.notasapp.models.RespuestaMensaje
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.properties.Delegates
 
 class NotasFragment : Fragment() {
     private var _binding: FragmentNotasBinding? = null
     private val binding get() = _binding!!
     private  var listaCursosAll = emptyList<Curso>()
+    private  var listaCursos = arrayListOf<Curso>()
     private var listaNotasAll = emptyList<Nota>()
     private  lateinit var shared: SharedPreferences
     private  lateinit var core: RestrofitBuilder
+    private  lateinit var  sp_ciclos: Spinner
+    private var ciclo:Number = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,10 +41,33 @@ class NotasFragment : Fragment() {
         _binding = FragmentNotasBinding.inflate(inflater, container, false)
         val root: View = binding.root
         core = RestrofitBuilder()
+        sp_ciclos= binding.spFrNotasCiclos
         shared =  requireActivity().getSharedPreferences("data", Context.MODE_PRIVATE)
         getNotas()
         binding.listNotasContent.setOnItemClickListener { adapterView, view, i, l ->
-            opcionesNota(listaCursosAll[i])
+            opcionesNota(listaCursos[i])
+        }
+        if(shared.getString("escuela_ciclos","")!=""){
+            val ciclos = shared.getString("escuela_ciclos","")
+            //spFrNotasCiclos
+            val lista = arrayListOf<Int>()
+            for (i in 1..(ciclos!!.toInt())) {
+                lista.add(i)
+            }
+            var adapter = ArrayAdapter(
+                requireActivity(),
+                android.R.layout.simple_spinner_item,
+                lista
+            )
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            sp_ciclos.adapter = adapter
+        }
+        sp_ciclos.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                ciclo=position+1
+                showListCursos(ciclo)
+            }
         }
         return root
     }
@@ -49,55 +76,47 @@ class NotasFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    fun getCursos(){
-        if(shared.getString("user_name","")!=""){
-            //get Notas Endpoint
-            val res = shared.getString("escuela_id","")?.let { core.getCursosEscuela(it) }
-            res?.enqueue(
-                object : Callback<List<Curso>> {
-                    override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
-                        if (response.code() == 200) {
-                            listaCursosAll = response.body()!!
-                            listaCursosAll.forEach {
-                                var nota = listaNotasAll.find { el->el?.curso_id==it?.id }
-                                it.nota = nota?.nota
-                                it.nota_id = nota?.id?.toInt()
-                            }
-                            val adapter = NotaAdapter(requireActivity(), listaCursosAll)
-                            binding.listNotasContent.adapter = adapter
-                        }
-                    }
-
-                    override fun onFailure(call: Call<List<Curso>>, t: Throwable) {
-                        print(t.message)
-                    }
-                }
-            )
-
-        }
-
-    }
     fun getNotas(){
         if(shared.getString("user_name","")!=""){
             //get Notas Endpoint
             val res = shared.getString("estudiante_id","")?.let { core.getNotasEstudiante(it) }
-            res?.enqueue(
-                object : Callback<List<Nota>> {
-                    override fun onResponse(call: Call<List<Nota>>, response: Response<List<Nota>>) {
-                        if (response.code() == 200) {
-                            listaNotasAll = response.body()!!
-                            getCursos()
-                        }
-                    }
-                    override fun onFailure(call: Call<List<Nota>>, t: Throwable) {
-                        print(t.message)
+            res?.enqueue( object : Callback<List<Nota>> {
+                override fun onResponse(call: Call<List<Nota>>, response: Response<List<Nota>>) {
+                    if (response.code() == 200) {
+                        listaNotasAll = response.body()!!
+                        getCursos()
                     }
                 }
-            )
-
+                override fun onFailure(call: Call<List<Nota>>, t: Throwable) {
+                    print(t.message)
+                }
+            })
         }
-
     }
+
+    fun getCursos(){
+        if(shared.getString("user_name","")!=""){
+            //get Notas Endpoint
+            val res = shared.getString("escuela_id","")?.let { core.getCursosEscuela(it) }
+            res?.enqueue( object : Callback<List<Curso>> {
+                override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
+                    if (response.code() == 200) {
+                        listaCursosAll = response.body()!!
+                        listaCursosAll.forEach {
+                            var nota = listaNotasAll.find { el->el.curso_id==it.id }
+                            it.nota = nota?.nota
+                            it.nota_id = nota?.id?.toInt()
+                        }
+                        showListCursos(ciclo)
+                    }
+                }
+                override fun onFailure(call: Call<List<Curso>>, t: Throwable) {
+                    print(t.message)
+                }
+            })
+        }
+    }
+
     fun opcionesNota(curso: Curso){
         var textNota = "Agregar Nota"
         if(curso.nota!=null){
@@ -115,6 +134,7 @@ class NotasFragment : Fragment() {
 
         builder.show()
     }
+
     fun editarNota(curso: Curso){
         val builder: AlertDialog.Builder = AlertDialog.Builder(requireActivity())
         builder.setTitle(curso.nombre)
@@ -175,13 +195,11 @@ class NotasFragment : Fragment() {
             }
         }
         builder.setNegativeButton("Cancelar") { dialog, which ->
-            //eliminar nota
-
             dialog.cancel()
         }
-
         builder.show()
     }
+
     fun deleteNota(curso: Curso){
         val res = core.deleteNotaCurso(curso.nota_id!!)
         res.enqueue( object : Callback<RespuestaMensaje> {
@@ -197,5 +215,22 @@ class NotasFragment : Fragment() {
                 print(t.message)
             }
         })
+    }
+
+    fun showListCursos(ciclo:Number){
+        listaCursos= arrayListOf()
+
+        listaCursosAll.forEach {
+            if(it.ciclo.toString()==ciclo.toString()){
+                listaCursos.add(it)
+            }
+        }
+        if(listaCursos.size==0){
+            Toast.makeText(requireActivity(),
+                "Vacio!!", Toast.LENGTH_SHORT).show()
+        }
+        val adapter = NotaAdapter(requireActivity(), listaCursos)
+        binding.listNotasContent.adapter = adapter
+
     }
 }

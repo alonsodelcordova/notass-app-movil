@@ -45,6 +45,11 @@ class EstudianteActivity : AppCompatActivity() {
             val headerView = navigationView.getHeaderView(0)
             val email_txt = headerView.findViewById<View>(R.id.textNavHeaderEmail) as TextView
             email_txt.text = shared.getString("user_name","")
+
+            val name_txt = headerView.findViewById<View>(R.id.textNavHeaderNames) as TextView
+            name_txt.text = (shared.getString("estudiante_nombres","") +" " + shared.getString("estudiante_apellidos","")).toUpperCase()
+            val codigo_txt = headerView.findViewById<View>(R.id.txtNavHeaderCodigo) as TextView
+            codigo_txt.text ="CU: "+ shared.getString("estudiante_codigo","")
         }
 
 

@@ -8,175 +8,160 @@
     tools:context=".activitys.ui.InicioFragment" >
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textViewInicio13"
         android:layout_width="101dp"
         android:layout_height="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/titule"
         android:text="BIENVENIDO"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineInicio20"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toTopOf="@+id/guideline22" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textViewInicio14"
         android:layout_width="343dp"
         android:layout_height="38dp"
+        android:layout_marginTop="8dp"
         android:text="Aplicación web para el control de tus notas en la Universidad Registrada  "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toTopOf="@+id/guideline20" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineInicio20" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline20"
+        android:id="@+id/guidelineInicio20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.04" />
+        app:layout_constraintGuide_percent="0.08" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/txtInicioNombre"
         android:layout_width="367dp"
         android:layout_height="23dp"
-        android:text="_____________________________________________________________________________"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineInicio24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toTopOf="@+id/guideline23" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineInicio23" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline22"
+        android:id="@+id/guidelineInicio23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.06" />
+        app:layout_constraintGuide_percent="0.16" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.17" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline24"
+        android:id="@+id/guidelineInicio24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.23" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/textViewInicio16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Usted pertenece a la facultad de:"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toTopOf="@+id/guideline24" />
-
-    <EditText
-        android:id="@+id/txt_facultad"
-        android:layout_width="227dp"
-        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/guideline27"
+        android:text="Usted pertenece a la facultad de:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toTopOf="@+id/guideline25"
-        app:layout_constraintVertical_bias="0.007" />
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineInicio24" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline25"
+        android:id="@+id/guidelineInicio25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.26" />
+        app:layout_constraintGuide_percent="0.27" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="29dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline27"
+        android:id="@+id/guidelineInicio27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="365dp" />
+        app:layout_constraintGuide_percent="0.53" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="340dp"
-        android:layout_height="306dp"
+        android:layout_width="323dp"
+        android:layout_height="258dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/guideline28"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineInicio28"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toTopOf="@+id/guideline27"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineInicio27"
+        app:layout_constraintVertical_bias="0.38" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline28"
+        android:id="@+id/guidelineInicio28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="698dp" />
+        app:layout_constraintGuide_percent="0.94" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline29"
+        android:id="@+id/guidelineInicio29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.33242133" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textViewInicio18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:text="Escuela de:"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toTopOf="@+id/guideline29" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineInicio29" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline30"
+        android:id="@+id/guidelineInicio30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.37" />
 
-    <EditText
-        android:id="@+id/txt_escuela"
-        android:layout_width="259dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/guideline31"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toTopOf="@+id/guideline30"
-        app:layout_constraintVertical_bias="0.64" />
-
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline31"
+        android:id="@+id/guidelineInicio31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.45" />
+
+    <TextView
+        android:id="@+id/txtInicioFacultad"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineInicio29"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineInicio25" />
+
+    <TextView
+        android:id="@+id/txtInicioEscuela"
+        android:layout_width="215dp"
+        android:layout_height="34dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineInicio31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineInicio30" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

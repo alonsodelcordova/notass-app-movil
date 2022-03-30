@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import com.example.notasapp.R
 import com.example.notasapp.activitys.EstudianteActivity
 import com.example.notasapp.core.RestrofitBuilder
+import com.example.notasapp.databinding.ActivityLoaderBinding
 import com.example.notasapp.databinding.FragmentInicioBinding
 import com.example.notasapp.models.DatosEstudiante
+import kotlinx.android.synthetic.main.login_inicio.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,7 +23,7 @@ class InicioFragment : Fragment() {
     private val binding get() = _binding!!
     private  lateinit var core: RestrofitBuilder
     private  lateinit var shared: SharedPreferences
-
+    private  lateinit var spinner: View
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,6 +31,7 @@ class InicioFragment : Fragment() {
     ): View {
         _binding = FragmentInicioBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        spinner = root.findViewById(R.id.loader_inicio)!!
         core = RestrofitBuilder()
         shared =  requireActivity().getSharedPreferences("data", Context.MODE_PRIVATE)
         getDatos()
@@ -43,9 +46,8 @@ class InicioFragment : Fragment() {
     }
     fun getDatos(){
         if(shared.getString("estudiante_id","")!=""){
-            //var main = requireActivity() as EstudianteActivity
-            //main.showSpinner()
-                val res = core.getDatosEstudiante(shared.getString("estudiante_id","")!!)
+            spinner.visibility=View.VISIBLE
+            val res = core.getDatosEstudiante(shared.getString("estudiante_id","")!!)
             res.enqueue( object : Callback<DatosEstudiante> {
                 override fun onResponse(call: Call<DatosEstudiante>, response: Response<DatosEstudiante>) {
                     if (response.code() == 200) {
@@ -54,10 +56,11 @@ class InicioFragment : Fragment() {
                         binding.txtInicioFacultad.text=rpta.facultad
                         binding.txtInicioUniversidad.text=rpta.universidad
                     }
-                    //EstudianteActivity().hideSpinner()
+                    spinner.visibility=View.GONE
                 }
                 override fun onFailure(call: Call<DatosEstudiante>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility=View.GONE
                 }
             })
         }

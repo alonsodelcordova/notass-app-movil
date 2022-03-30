@@ -210,4 +210,10 @@
         </TableRow>
 
     </TableLayout>
+    <include
+        android:id="@+id/loader_informe"
+        layout="@layout/activity_loader"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

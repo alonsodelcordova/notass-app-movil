@@ -33,6 +33,7 @@ class NotasFragment : Fragment() {
     private  lateinit var core: RestrofitBuilder
     private  lateinit var  sp_ciclos: Spinner
     private var ciclo:Number = 0
+    private  lateinit var spinner: View
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,6 +41,7 @@ class NotasFragment : Fragment() {
     ): View {
         _binding = FragmentNotasBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        spinner = root.findViewById(R.id.loader_notas)!!
         core = RestrofitBuilder()
         sp_ciclos= binding.spFrNotasCiclos
         shared =  requireActivity().getSharedPreferences("data", Context.MODE_PRIVATE)
@@ -79,6 +81,7 @@ class NotasFragment : Fragment() {
     fun getNotas(){
         if(shared.getString("user_name","")!=""){
             //get Notas Endpoint
+            spinner.visibility=View.VISIBLE
             val res = shared.getString("estudiante_id","")?.let { core.getNotasEstudiante(it) }
             res?.enqueue( object : Callback<List<Nota>> {
                 override fun onResponse(call: Call<List<Nota>>, response: Response<List<Nota>>) {
@@ -86,9 +89,11 @@ class NotasFragment : Fragment() {
                         listaNotasAll = response.body()!!
                         getCursos()
                     }
+                    spinner.visibility=View.GONE
                 }
                 override fun onFailure(call: Call<List<Nota>>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility=View.GONE
                 }
             })
         }
@@ -97,6 +102,7 @@ class NotasFragment : Fragment() {
     fun getCursos(){
         if(shared.getString("user_name","")!=""){
             //get Notas Endpoint
+            spinner.visibility=View.VISIBLE
             val res = shared.getString("escuela_id","")?.let { core.getCursosEscuela(it) }
             res?.enqueue( object : Callback<List<Curso>> {
                 override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
@@ -109,9 +115,11 @@ class NotasFragment : Fragment() {
                         }
                         showListCursos(ciclo)
                     }
+                    spinner.visibility=View.GONE
                 }
                 override fun onFailure(call: Call<List<Curso>>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility=View.GONE
                 }
             })
         }
@@ -161,6 +169,7 @@ class NotasFragment : Fragment() {
                 )
                 if(curso.nota!=null){
                     //update
+                    spinner.visibility=View.VISIBLE
                     val res = core.updateNotaCurso(curso.nota_id!! ,nota)
                     res.enqueue( object : Callback<Nota> {
                         override fun onResponse(call: Call<Nota>, response: Response<Nota>) {
@@ -170,13 +179,16 @@ class NotasFragment : Fragment() {
                                     "Actualizado!!", Toast.LENGTH_SHORT).show()
                                 getNotas()
                             }
+                            spinner.visibility=View.GONE
                         }
                         override fun onFailure(call: Call<Nota>, t: Throwable) {
                             print(t.message)
+                            spinner.visibility=View.GONE
                         }
                     })
                 }else{
                     //register
+                    spinner.visibility=View.VISIBLE
                     val res = core.registerNotaCurso(nota)
                     res.enqueue( object : Callback<Nota> {
                         override fun onResponse(call: Call<Nota>, response: Response<Nota>) {
@@ -186,9 +198,11 @@ class NotasFragment : Fragment() {
                                     "Guardado!!", Toast.LENGTH_SHORT).show()
                                 getNotas()
                             }
+                            spinner.visibility=View.GONE
                         }
                         override fun onFailure(call: Call<Nota>, t: Throwable) {
                             print(t.message)
+                            spinner.visibility=View.GONE
                         }
                     })
                 }
@@ -201,6 +215,7 @@ class NotasFragment : Fragment() {
     }
 
     fun deleteNota(curso: Curso){
+        spinner.visibility=View.VISIBLE
         val res = core.deleteNotaCurso(curso.nota_id!!)
         res.enqueue( object : Callback<RespuestaMensaje> {
             override fun onResponse(call: Call<RespuestaMensaje>, response: Response<RespuestaMensaje>) {
@@ -210,9 +225,11 @@ class NotasFragment : Fragment() {
                         rpta.msg, Toast.LENGTH_SHORT).show()
                     getNotas()
                 }
+                spinner.visibility=View.GONE
             }
             override fun onFailure(call: Call<RespuestaMensaje>, t: Throwable) {
                 print(t.message)
+                spinner.visibility=View.GONE
             }
         })
     }

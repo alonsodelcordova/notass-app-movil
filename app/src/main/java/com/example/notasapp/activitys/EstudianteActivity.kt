@@ -24,7 +24,7 @@ class EstudianteActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityEstudianteBinding
     private  lateinit var shared: SharedPreferences
-    private  lateinit var spinner: View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

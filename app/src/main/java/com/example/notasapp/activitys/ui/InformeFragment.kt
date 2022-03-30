@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.notasapp.R
 import com.example.notasapp.core.RestrofitBuilder
 import com.example.notasapp.databinding.FragmentInformeBinding
 import com.example.notasapp.models.Curso
@@ -23,6 +24,7 @@ class InformeFragment : Fragment() {
     private var listaNotasAll = emptyList<Nota>()
     private  lateinit var shared: SharedPreferences
     private  lateinit var core: RestrofitBuilder
+    private  lateinit var spinner: View
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,6 +32,7 @@ class InformeFragment : Fragment() {
     ): View {
         _binding = FragmentInformeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        spinner = root.findViewById(R.id.loader_informe)!!
         core = RestrofitBuilder()
         shared =  requireActivity().getSharedPreferences("data", Context.MODE_PRIVATE)
         getNotas()
@@ -53,6 +56,7 @@ class InformeFragment : Fragment() {
     fun getCursos(){
         if(shared.getString("user_name","")!=""){
             //get Notas Endpoint
+            spinner.visibility=View.VISIBLE
             val res = shared.getString("escuela_id","")?.let { core.getCursosEscuela(it) }
             res?.enqueue( object : Callback<List<Curso>> {
                 override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
@@ -65,9 +69,11 @@ class InformeFragment : Fragment() {
                         }
                         getDatos()
                     }
+                    spinner.visibility=View.GONE
                 }
                 override fun onFailure(call: Call<List<Curso>>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility=View.GONE
                 }
             })
         }
@@ -124,6 +130,7 @@ class InformeFragment : Fragment() {
     }
     fun getDatos(){
         if(shared.getString("estudiante_id","")!=""){
+            spinner.visibility=View.VISIBLE
             val res = core.getDatosEstudiante(shared.getString("estudiante_id","")!!)
             res.enqueue( object : Callback<DatosEstudiante> {
                 override fun onResponse(call: Call<DatosEstudiante>, response: Response<DatosEstudiante>) {
@@ -134,9 +141,11 @@ class InformeFragment : Fragment() {
                                 "\nEscuela: ${rpta.escuela}"
                         showData()
                     }
+                    spinner.visibility=View.GONE
                 }
                 override fun onFailure(call: Call<DatosEstudiante>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility=View.GONE
                 }
             })
         }

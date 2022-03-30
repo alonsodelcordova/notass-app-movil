@@ -59,4 +59,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1" />
+    <include
+        android:id="@+id/loader_notas"
+        layout="@layout/activity_loader"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

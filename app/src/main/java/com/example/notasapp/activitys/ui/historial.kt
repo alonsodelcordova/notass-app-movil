@@ -1,6 +1,5 @@
 package com.example.notasapp.activitys.ui
 
-import android.R
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -12,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import com.example.notasapp.R
 import com.example.notasapp.activitys.ui.adapters.NotaAdapter
 import com.example.notasapp.core.RestrofitBuilder
 import com.example.notasapp.databinding.FragmentHistorialBinding
@@ -31,6 +31,7 @@ class historial : Fragment() {
     private  lateinit var core: RestrofitBuilder
     private  lateinit var  sp_ciclos: Spinner
     private var ciclo:Number = 0
+    private  lateinit var spinner: View
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,6 +39,7 @@ class historial : Fragment() {
     ): View {
         _binding = FragmentHistorialBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        spinner = root.findViewById(R.id.loader_historia)!!
         core = RestrofitBuilder()
         sp_ciclos= binding.spHistorialCiclos
         shared =  requireActivity().getSharedPreferences("data", Context.MODE_PRIVATE)
@@ -48,6 +50,7 @@ class historial : Fragment() {
 
     fun getNotas(){
         //get Notas Endpoint
+        spinner.visibility=View.VISIBLE
         val res = shared.getString("estudiante_id","")?.let { core.getNotasEstudiante(it) }
         res?.enqueue( object : Callback<List<Nota>> {
             override fun onResponse(call: Call<List<Nota>>, response: Response<List<Nota>>) {
@@ -55,15 +58,18 @@ class historial : Fragment() {
                     listaNotasAll = response.body()!!
                     getCursos()
                 }
+                spinner.visibility=View.GONE
             }
             override fun onFailure(call: Call<List<Nota>>, t: Throwable) {
                 print(t.message)
+                spinner.visibility=View.GONE
             }
         })
     }
     fun getCursos(){
         if(shared.getString("user_name","")!=""){
             //get Notas Endpoint
+            spinner.visibility=View.VISIBLE
             val res = shared.getString("escuela_id","")?.let { core.getCursosEscuela(it) }
             res?.enqueue( object : Callback<List<Curso>> {
                 override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
@@ -76,9 +82,11 @@ class historial : Fragment() {
                         }
                         showListCursos(ciclo)
                     }
+                    spinner.visibility=View.GONE
                 }
                 override fun onFailure(call: Call<List<Curso>>, t: Throwable) {
                     print(t.message)
+                    spinner.visibility=View.GONE
                 }
             })
         }
@@ -135,7 +143,7 @@ class historial : Fragment() {
             }
             var adapter = ArrayAdapter(
                 requireActivity(),
-                R.layout.simple_spinner_item,
+                android.R.layout.simple_spinner_item,
                 lista
             )
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
